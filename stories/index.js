@@ -36,6 +36,7 @@ storiesOf('Picker', module)
   .add('Default', () => (
     <Picker
       onClick={action('clicked')}
+      onSearchFocused={action('search focused')}
       onSelect={action('selected')}
       onSkinChange={action('skin changed')}
       native={boolean('Unicode', true)}
