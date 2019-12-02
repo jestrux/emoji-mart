@@ -13,6 +13,7 @@ const EmojiDefaultProps = {
 
 const PickerDefaultProps = {
   onClick: () => {},
+  onSearchFocused: () => {},
   onSelect: () => {},
   onSkinChange: () => {},
   emojiSize: 24,

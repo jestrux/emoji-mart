@@ -90,6 +90,7 @@ export default class Search extends React.PureComponent {
           ref={this.setRef}
           type="search"
           onChange={this.handleChange}
+          onFocus={typeof this.props.onSearchFocused === 'function' ? this.props.onSearchFocused : () => null}
           placeholder={i18n.search}
           autoFocus={autoFocus}
         />
