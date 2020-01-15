@@ -454,6 +454,7 @@ export default class NimblePicker extends React.PureComponent {
 
   setSearchRef(c) {
     this.search = c
+    this.props.searchInputRef(c.input);
   }
 
   setPreviewRef(c) {
@@ -618,5 +619,9 @@ export default class NimblePicker extends React.PureComponent {
 NimblePicker.propTypes /* remove-proptypes */ = {
   ...PickerPropTypes,
   data: PropTypes.object.isRequired,
+  searchInputRef: PropTypes.func
 }
-NimblePicker.defaultProps = { ...PickerDefaultProps }
+NimblePicker.defaultProps = {
+  ...PickerDefaultProps,
+  searchInputRef: () => {}
+}
