@@ -79,7 +79,7 @@ export default class Search extends React.PureComponent {
   }
 
   render() {
-    const { i18n, autoFocus } = this.props
+    const { i18n, autoFocus, onSearchFocused } = this.props
     const { icon, isSearching, id } = this.state
     const inputId = `emoji-mart-search-${id}`
 
@@ -90,7 +90,7 @@ export default class Search extends React.PureComponent {
           ref={this.setRef}
           type="search"
           onChange={this.handleChange}
-          onFocus={typeof this.props.onSearchFocused === 'function' ? this.props.onSearchFocused : () => null}
+          onFocus={onSearchFocused}
           placeholder={i18n.search}
           autoFocus={autoFocus}
         />
@@ -117,6 +117,7 @@ export default class Search extends React.PureComponent {
 
 Search.propTypes /* remove-proptypes */ = {
   onSearch: PropTypes.func,
+  onSearchFocused: PropTypes.func,
   maxResults: PropTypes.number,
   emojisToShowFilter: PropTypes.func,
   autoFocus: PropTypes.bool,
@@ -124,6 +125,7 @@ Search.propTypes /* remove-proptypes */ = {
 
 Search.defaultProps = {
   onSearch: () => {},
+  onSearchFocused: () => {},
   maxResults: 75,
   emojisToShowFilter: null,
   autoFocus: false,
